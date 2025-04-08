@@ -35,6 +35,7 @@
     ../../modules/copyq
     ../../modules/screenshot
     ../../modules/kdeconnect
+    ../../modules/fcitx5
 
     ../../modules/dev-tools
   ];
