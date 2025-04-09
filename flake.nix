@@ -23,6 +23,8 @@
       url = "git+ssh://git@github.com/Dreamail/secrets?shallow=1";
       flake = false;
     };
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = {...} @ inputs: let

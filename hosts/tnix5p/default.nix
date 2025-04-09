@@ -11,6 +11,7 @@
     ./modules/hyprland
     ./modules/backlight
     ./modules/power
+    ./modules/hidpi
 
     ../../modules/secrets
 
@@ -38,6 +39,7 @@
     ../../modules/fcitx5
 
     ../../modules/dev-tools
+    ../../modules/game
   ];
   modules = lib.forEach module_paths (x: import x);
 
