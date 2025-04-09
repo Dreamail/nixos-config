@@ -1,5 +1,9 @@
 {
-  homeModule = {};
+  homeModule = {
+    imports = [
+      ./osulazer/home.nix
+    ];
+  };
   nixosModule = {inputs, ...}: {
     imports = [
       inputs.nix-gaming.nixosModules.pipewireLowLatency
