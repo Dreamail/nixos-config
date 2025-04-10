@@ -40,6 +40,7 @@
 
     ../../modules/dev-tools
     ../../modules/game
+    ../../modules/gui-apps
   ];
   modules = lib.forEach module_paths (x: import x);
 
