@@ -13,4 +13,6 @@
 
   xdg.configFile."fcitx5/config".source = ./config;
   xdg.configFile."fcitx5/profile".source = ./profile;
+
+  home.file.".local/share/fcitx5/rime/default.yaml".source = ./default.yaml;
 }
