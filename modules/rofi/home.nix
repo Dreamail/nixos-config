@@ -16,6 +16,7 @@ in {
       show-icons = true;
       display-drun = " ";
       drun-display-format = "{name}";
+      run-command = "uwsm app -- {cmd}";
     };
     font = "JetBrainsMono Nerd Font 10";
     theme = let
