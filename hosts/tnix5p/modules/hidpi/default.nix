@@ -1,11 +1,7 @@
 let
   scaling = 1.67;
 in {
-  homeModule = {
-    xdg.configFile."environment.d/20-wechat-scaling.conf".text = ''
-      WECHAT_SCALE_FACTOR=${toString scaling}
-    '';
-  };
+  homeModule = {};
   nixosModule = {
     nixpkgs.overlays = [
       (self: super: {

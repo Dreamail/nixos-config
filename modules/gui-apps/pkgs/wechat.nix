@@ -31,7 +31,7 @@ in
         export IBUS_USE_PORTAL=1
       fi
 
-      export QT_SCALE_FACTOR=''${WECHAT_SCALE_FACTOR}
+      export XCURSOR_SIZE=''${HIDPI_XPROP:+''$((''${XCURSOR_SIZE} * 2))}
 
       mkdir -p ${wechat-data}/home
       mkdir -p ${wechat-data}/xwechat_files
