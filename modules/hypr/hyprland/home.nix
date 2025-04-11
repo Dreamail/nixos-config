@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   isVM,
   ...
 }: {
@@ -14,6 +15,9 @@
       inherit isVM;
     };
   };
+
+  # make `home.sessionVariables` accessible for uwsm
+  systemd.user.sessionVariables = config.home.sessionVariables;
 
   catppuccin.hyprland.enable = true;
 }
