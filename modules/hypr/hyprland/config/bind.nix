@@ -16,6 +16,7 @@
     "$mainMod, 8, workspace, 8"
     "$mainMod, 9, workspace, 9"
     "$mainMod, 0, workspace, 10"
+    "$mainMod, S, togglespecialworkspace"
 
     # Move to workspace
     "$mainMod+Shift, 1, movetoworkspace, 1"
@@ -28,6 +29,8 @@
     "$mainMod+Shift, 8, movetoworkspace, 8"
     "$mainMod+Shift, 9, movetoworkspace, 9"
     "$mainMod+Shift, 0, movetoworkspace, 10"
+    "$mainMod+Shift, S, movetoworkspace, special"
+    "$mainMod+Shift+Alt, S, movetoworkspace, +0" # move out of special
 
     # Move to workspace silently
     "$mainMod+Alt, 1, movetoworkspacesilent, 1"
@@ -40,6 +43,8 @@
     "$mainMod+Alt, 8, movetoworkspacesilent, 8"
     "$mainMod+Alt, 9, movetoworkspacesilent, 9"
     "$mainMod+Alt, 0, movetoworkspacesilent, 10"
+    "$mainMod+Alt, S, movetoworkspacesilent, special"
+    "$mainMod+Alt, S, movetoworkspacesilent, +0" # move out of special
   ];
 
   bindm = [
