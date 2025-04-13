@@ -39,7 +39,7 @@ in
     chdirToPwd = false;
     unshareUser = true;
     unshareIpc = true;
-    unsharePid = true;
+    unsharePid = false;
     unshareNet = false;
     unshareUts = true;
     unshareCgroup = true;
