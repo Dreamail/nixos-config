@@ -15,4 +15,8 @@
   xdg.configFile."fcitx5/profile".source = ./profile;
 
   home.file.".local/share/fcitx5/rime/default.yaml".source = ./default.yaml;
+
+  wayland.windowManager.hyprland.settings = {
+    windowrule = ["float, class:org.fcitx."];
+  };
 }
