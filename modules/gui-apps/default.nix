@@ -14,6 +14,13 @@
         "noblur, class:wechat, title:wechat"
         "noborder, class:wechat, title:wechat"
         "noshadow, class:wechat, title:wechat"
+
+        "float, class:QQ"
+        "center, class:QQ"
+        "size 70% 80%, class:QQ, title:QQ"
+        "float, class:wechat"
+        "center, class:wechat, title:微信"
+        "size 70% 80%, class:wechat, title:微信"
       ];
     };
   };
