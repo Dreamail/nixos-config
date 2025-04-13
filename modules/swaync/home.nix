@@ -140,7 +140,7 @@ in {
       .control-center .notification-row .notification-background {
         border-radius: 7px;
         color: ${colors.text.hex};
-        background-color: alpha(${colors.surface0.hex}, .4);
+        background-color: alpha(${colors.surface0.hex}, .9);
         box-shadow: inset 0 0 0 1px ${colors.surface1.hex};
         margin-top: 14px;
       }
