@@ -50,6 +50,7 @@ in
       "--ro-bind-try \${HOME}/.icons{,}"
       "--ro-bind-try \${HOME}/.local/share/.icons{,}"
     ];
+    chdirToPwd = false;
     unshareUser = true;
     unshareIpc = true;
     unsharePid = true;
