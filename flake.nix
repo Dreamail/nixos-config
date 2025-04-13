@@ -20,7 +20,7 @@
 
     agenix.url = "github:ryantm/agenix";
     mysecrets = {
-      url = "git+ssh://git@github.com/Dreamail/secrets?shallow=1";
+      url = "git+ssh://git@github.com/Dreamail/nix-secrets?shallow=1";
       flake = false;
     };
 

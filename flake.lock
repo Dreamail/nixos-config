@@ -459,12 +459,12 @@
         "rev": "d27a5873a4fbead92516153325b36eec67643334",
         "shallow": true,
         "type": "git",
-        "url": "ssh://git@github.com/Dreamail/secrets"
+        "url": "ssh://git@github.com/Dreamail/nix-secrets"
       },
       "original": {
         "shallow": true,
         "type": "git",
-        "url": "ssh://git@github.com/Dreamail/secrets"
+        "url": "ssh://git@github.com/Dreamail/nix-secrets"
       }
     },
     "nix-gaming": {
