@@ -135,7 +135,10 @@ in {
       "$mainMod, A, exec, pkill -x rofi || uwsm app -- rofi -show drun"
       "$mainMod, Tab, exec, pkill -x rofi || uwsm app -- rofi -show window"
     ];
-    layerrule = ["blur, rofi"];
+    layerrule = [
+      "blur, rofi"
+      "ignorezero, rofi"
+    ];
   };
 
   catppuccin.rofi.enable = false; # We use nixlang module
