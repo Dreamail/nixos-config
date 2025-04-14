@@ -6,7 +6,7 @@
   };
 
   hardware.graphics = {
-    extraPackages = [pkgs.intel-vaapi-driver];
-    extraPackages32 = [pkgs.driversi686Linux.intel-vaapi-driver];
+    extraPackages = [pkgs.intel-media-driver];
+    extraPackages32 = [pkgs.driversi686Linux.intel-media-driver];
   };
 }
