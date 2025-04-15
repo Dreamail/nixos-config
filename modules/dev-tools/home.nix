@@ -7,6 +7,7 @@ in
     ./terminal/home.nix
     ./vscode.nix
     ./charles/home.nix
+    ./nix.nix
   ];
 
   programs.git = {
