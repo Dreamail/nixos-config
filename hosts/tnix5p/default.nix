@@ -12,7 +12,6 @@ let
     ./modules/hyprland
     ./modules/backlight
     ./modules/power
-    ./modules/hidpi
 
     ../../modules/secrets
 
