@@ -22,6 +22,13 @@
     '';
   };
   programs.nix-index.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+  };
 
   wayland.windowManager.hyprland.settings = {
     bind = [

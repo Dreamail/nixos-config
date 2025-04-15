@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./terminal/home.nix
     ./vscode.nix
     ./charles/home.nix
   ];

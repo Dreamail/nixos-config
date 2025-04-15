@@ -33,7 +33,6 @@ let
     ../../modules/upower
     ../../modules/swaync
     ../../modules/nautilus
-    ../../modules/terminal
     ../../modules/copyq
     ../../modules/screenshot
     ../../modules/kdeconnect

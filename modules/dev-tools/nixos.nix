@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./terminal/nixos.nix
     ./clash-verge.nix
     ./charles/nixos.nix
   ];
