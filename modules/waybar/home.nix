@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -11,7 +12,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        output = ["*"];
+        output = [ "*" ];
         mod = "dock";
         height = 31;
         exclusive = true;
@@ -118,7 +119,7 @@
           on-click = "activate";
           on-scroll-down = "hyprctl dispatch workspace +1";
           on-scroll-up = "hyprctl dispatch workspace -1";
-          persistent-workspaces = {};
+          persistent-workspaces = { };
           rotate = 0;
         };
 
@@ -409,10 +410,10 @@
     '';
   };
   fonts.fontconfig.enable = lib.mkDefault true;
-  home.packages = [pkgs.nerd-fonts.jetbrains-mono];
+  home.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
   wayland.windowManager.hyprland.settings = {
-    layerrule = ["blur, waybar"];
+    layerrule = [ "blur, waybar" ];
   };
 
   catppuccin.waybar = {

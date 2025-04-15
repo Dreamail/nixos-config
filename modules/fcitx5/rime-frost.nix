@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
     rev = "f17ab9f113f912843536c9f87051f72ea677d3bd";
     hash = "sha256-iJeG+O5Nhku+irtikf3E8fCOGe1nmO7skcFiTP6gJEg=";
   };
-  buildInputs = [librime];
+  buildInputs = [ librime ];
   buildPhase = ''
     rime_deployer --build .
     rm user.yaml

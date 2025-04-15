@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   colors = config.catppuccin-nix.theme.colors;
-in {
+in
+{
   services.swaync = {
     enable = true;
     style = ''

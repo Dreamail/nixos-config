@@ -11,8 +11,8 @@
         "move cursor 0 +5%, class:com.github.hluk.copyq"
         "size 25% 50%, class:com.github.hluk.copyq"
       ];
-      bind = ["$mainMod, V, exec, copyq toggle"];
+      bind = [ "$mainMod, V, exec, copyq toggle" ];
     };
   };
-  nixosModule = {};
+  nixosModule = { };
 }

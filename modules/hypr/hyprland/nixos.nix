@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   # use patch to support scaling xwayland windows
   hyprland-patch = pkgs.fetchpatch {
     name = "hyprland-hidpi-xprop.patch";
@@ -16,19 +17,18 @@
     hash = "sha256-wAsBSyp0B52jC586lDWBV6TTkLuQqEr3juOEus83GTo=";
   };
   xwayland = pkgs.xwayland.overrideAttrs (previousArgs: {
-    patches = [xwayland-patch];
-    mesonFlags =
-      previousArgs.mesonFlags
-      ++ [
-        (lib.mesonBool "xvfb" false)
-        (lib.mesonBool "xdmcp" false)
-      ];
+    patches = [ xwayland-patch ];
+    mesonFlags = previousArgs.mesonFlags ++ [
+      (lib.mesonBool "xvfb" false)
+      (lib.mesonBool "xdmcp" false)
+    ];
   });
-in {
+in
+{
   nix.settings = {
     # Hyprland cachix
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
   programs.hyprland = {
@@ -37,14 +37,15 @@ in {
 
     package =
       (inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.overrideAttrs {
-        patches = [hyprland-patch];
-      })
-      .override {
-        inherit xwayland;
-      };
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+        patches = [ hyprland-patch ];
+      }).override
+        {
+          inherit xwayland;
+        };
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
-  environment.systemPackages = [xwayland]; # add patched xwayland to path, idkw it cant be added automatically in hyprland drv
+  environment.systemPackages = [ xwayland ]; # add patched xwayland to path, idkw it cant be added automatically in hyprland drv
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

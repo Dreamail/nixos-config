@@ -1,6 +1,8 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   paper = (import ./paper.nix pkgs).paper;
-in {
+in
+{
   services.hyprpaper = {
     enable = true;
     settings = {

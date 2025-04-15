@@ -1,7 +1,8 @@
 let
   scaling = 1.67;
-in {
-  homeModule = {};
+in
+{
+  homeModule = { };
   nixosModule = {
     nixpkgs.overlays = [
       (self: super: {

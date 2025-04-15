@@ -3,8 +3,9 @@
   config,
   pkgs,
   ...
-}: {
-  home.packages = [pkgs.wlogout];
+}:
+{
+  home.packages = [ pkgs.wlogout ];
   programs.wlogout = {
     enable = true;
     layout = [
@@ -45,16 +46,17 @@
         text = "Reboot";
       }
     ];
-    style = let
-      colors = config.catppuccin-nix.theme.colors;
-      hypr_border = config.wayland.windowManager.hyprland.settings.decoration.rounding;
-      font_size = 28;
-      button_width = font_size * 5;
-      active_rad = toString (hypr_border * 8);
-      button_rad = toString (hypr_border * 5);
-      mgn = "268"; #TODO dynamic detect
-      hvr = "220";
-    in
+    style =
+      let
+        colors = config.catppuccin-nix.theme.colors;
+        hypr_border = config.wayland.windowManager.hyprland.settings.decoration.rounding;
+        font_size = 28;
+        button_width = font_size * 5;
+        active_rad = toString (hypr_border * 8);
+        button_rad = toString (hypr_border * 5);
+        mgn = "268"; # TODO dynamic detect
+        hvr = "220";
+      in
       lib.mkForce ''
         * {
             background-image: none;
@@ -163,7 +165,9 @@
   };
 
   wayland.windowManager.hyprland.settings = {
-    bind = ["$mainMod, Backspace, exec, pkill -x wlogout || uwsm app -- wlogout -b 6 -m 0 -r 0 -c 0 --protocol layer-shell"];
-    layerrule = ["blur, logout_dialog"];
+    bind = [
+      "$mainMod, Backspace, exec, pkill -x wlogout || uwsm app -- wlogout -b 6 -m 0 -r 0 -c 0 --protocol layer-shell"
+    ];
+    layerrule = [ "blur, logout_dialog" ];
   };
 }

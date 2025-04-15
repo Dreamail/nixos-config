@@ -1,5 +1,5 @@
 {
-  homeModule = {};
+  homeModule = { };
   nixosModule = {
     powerManagement.resumeCommands = ''
       rmmod r8169

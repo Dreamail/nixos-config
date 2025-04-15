@@ -3,7 +3,8 @@
   user,
   isVM ? false,
   ...
-}: let
+}:
+let
   lib = inputs.nixpkgs.lib;
 
   module_paths = [
@@ -47,37 +48,33 @@
   nixosModules = lib.forEach modules (x: x.nixosModule);
   homeModules = lib.forEach modules (x: x.homeModule);
 in
-  lib.nixosSystem {
-    system = "x86_64-linux";
-    specialArgs = {inherit inputs user isVM;};
-    modules =
-      [
-        ./core.nix
+lib.nixosSystem {
+  system = "x86_64-linux";
+  specialArgs = { inherit inputs user isVM; };
+  modules = [
+    ./core.nix
 
-        inputs.catppuccin.nixosModules.catppuccin
-        inputs.agenix.nixosModules.default
+    inputs.catppuccin.nixosModules.catppuccin
+    inputs.agenix.nixosModules.default
 
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit inputs user isVM;};
+    inputs.home-manager.nixosModules.home-manager
+    {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.extraSpecialArgs = { inherit inputs user isVM; };
 
-          home-manager.users.${user.name} = {
-            imports =
-              [
-                inputs.catppuccin.homeManagerModules.catppuccin
-                inputs.nix-index-database.hmModules.nix-index
-                inputs.agenix.homeManagerModules.default
-              ]
-              ++ homeModules;
+      home-manager.users.${user.name} = {
+        imports = [
+          inputs.catppuccin.homeManagerModules.catppuccin
+          inputs.nix-index-database.hmModules.nix-index
+          inputs.agenix.homeManagerModules.default
+        ] ++ homeModules;
 
-            home.username = user.name;
-            home.homeDirectory = "/home/${user.name}";
+        home.username = user.name;
+        home.homeDirectory = "/home/${user.name}";
 
-            home.stateVersion = "24.11";
-          };
-        }
-      ]
-      ++ nixosModules;
-  }
+        home.stateVersion = "24.11";
+      };
+    }
+  ] ++ nixosModules;
+}

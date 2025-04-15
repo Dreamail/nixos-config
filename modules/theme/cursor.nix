@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.pointerCursor = {
     enable = true;
     name = "macOS"; # Turn to catppuccin when gtk4 is fixed

@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.kitty.enable = true;
   catppuccin.kitty.enable = true;
 
-  home.packages = [pkgs.zsh-powerlevel10k];
+  home.packages = [ pkgs.zsh-powerlevel10k ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;

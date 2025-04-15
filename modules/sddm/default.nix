@@ -1,4 +1,4 @@
 {
   nixosModule = import ./nixos.nix;
-  homeModule = {};
+  homeModule = { };
 }

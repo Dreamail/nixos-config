@@ -1,11 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5 = {
       waylandFrontend = true;
       addons = with pkgs; [
         (fcitx5-rime.override {
-          rimeDataPkgs = [(callPackage ./rime-frost.nix {})];
+          rimeDataPkgs = [ (callPackage ./rime-frost.nix { }) ];
         })
       ];
     };
@@ -17,6 +18,6 @@
   home.file.".local/share/fcitx5/rime/default.yaml".source = ./default.yaml;
 
   wayland.windowManager.hyprland.settings = {
-    windowrule = ["float, class:org.fcitx."];
+    windowrule = [ "float, class:org.fcitx." ];
   };
 }

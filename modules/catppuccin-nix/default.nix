@@ -1,14 +1,17 @@
 let
-  module = {
-    lib,
-    config,
-    ...
-  }:
-    with lib; let
+  module =
+    {
+      lib,
+      config,
+      ...
+    }:
+    with lib;
+    let
       cfg = config.catppuccin-nix;
 
       palette = importJSON ./palette.json;
-    in {
+    in
+    {
       options.catppuccin-nix = {
         flavor = mkOption {
           type = types.enum [
@@ -28,18 +31,20 @@ let
 
       config = {
         catppuccin-nix.theme =
-          if cfg.flavor == "latte"
-          then palette.latte
-          else if cfg.flavor == "frappe"
-          then palette.frappe
-          else if cfg.flavor == "macchiato"
-          then palette.macchiato
-          else palette.mocha;
+          if cfg.flavor == "latte" then
+            palette.latte
+          else if cfg.flavor == "frappe" then
+            palette.frappe
+          else if cfg.flavor == "macchiato" then
+            palette.macchiato
+          else
+            palette.mocha;
 
         catppuccin.flavor = cfg.flavor;
       };
     };
-in {
+in
+{
   homeModule = module;
   nixosModule = module;
 }

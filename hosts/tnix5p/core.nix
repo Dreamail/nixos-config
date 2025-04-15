@@ -3,11 +3,15 @@
   user,
   isVM ? false,
   ...
-}: {
+}:
+{
   imports =
-    []
-    ++ lib.optionals isVM [./vm.nix]
-    ++ lib.optionals (!isVM) [./hardware-configuration.nix ./drivers];
+    [ ]
+    ++ lib.optionals isVM [ ./vm.nix ]
+    ++ lib.optionals (!isVM) [
+      ./hardware-configuration.nix
+      ./drivers
+    ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -40,7 +44,10 @@
     isNormalUser = true;
     description = user.description;
     initialPassword = user.initialPassword;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
   system.stateVersion = "24.05";

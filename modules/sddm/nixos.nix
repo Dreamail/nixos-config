@@ -1,8 +1,10 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "hyprland_kath";
   };
-in {
+in
+{
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -13,7 +15,7 @@ in {
     ];
   };
 
-  environment.systemPackages = [sddm-astronaut];
+  environment.systemPackages = [ sddm-astronaut ];
 
   #catppuccin.sddm.enable = true;
 }

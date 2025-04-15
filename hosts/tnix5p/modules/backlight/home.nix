@@ -1,6 +1,6 @@
 {
   services.wluma.settings = {
-    als.none = {};
+    als.none = { };
     output.backlight = [
       {
         capturer = "wayland";

@@ -1,6 +1,8 @@
-{inputs, ...}: let
+{ inputs, ... }:
+let
   git-config = import "${inputs.mysecrets}/git-config.nix";
-in {
+in
+{
   imports = [
     ./vscode.nix
     ./charles/home.nix

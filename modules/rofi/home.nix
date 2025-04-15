@@ -3,11 +3,13 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (config.lib.formats.rasi) mkLiteral;
 
   colors = config.catppuccin-nix.theme.colors;
-in {
+in
+{
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -19,9 +21,10 @@ in {
       run-command = "uwsm app -- {cmd}";
     };
     font = "JetBrainsMono Nerd Font 10";
-    theme = let
-      hypr_border = config.wayland.windowManager.hyprland.settings.decoration.rounding;
-    in
+    theme =
+      let
+        hypr_border = config.wayland.windowManager.hyprland.settings.decoration.rounding;
+      in
       lib.mkForce {
         window = {
           enabled = true;
@@ -41,7 +44,10 @@ in {
           spacing = mkLiteral "0em";
           padding = mkLiteral "1em";
           orientation = mkLiteral "vertical";
-          children = ["inputbar" "listbox"];
+          children = [
+            "inputbar"
+            "listbox"
+          ];
           background-color = mkLiteral "transparent";
         };
 
@@ -50,7 +56,7 @@ in {
           spacing = mkLiteral "0em";
           padding = mkLiteral "2em";
           border-radius = mkLiteral "${toString (hypr_border * 2)}px ${toString (hypr_border * 2)}px 0em 0em";
-          children = ["entry"];
+          children = [ "entry" ];
           background-color = mkLiteral (colors.base.hex + "b3");
         };
         entry = {
@@ -65,7 +71,7 @@ in {
           spacing = mkLiteral "0em";
           padding = mkLiteral "0em";
           border-radius = mkLiteral "0em 0em ${toString (hypr_border * 2)}px ${toString (hypr_border * 2)}px";
-          children = ["listview"];
+          children = [ "listview" ];
           background-color = mkLiteral (colors.base.hex + "b3");
         };
         listview = {
@@ -118,7 +124,7 @@ in {
           text-color = mkLiteral colors.text.hex;
           background-color = mkLiteral (colors.base.hex + "b3");
           text-transform = mkLiteral "capitalize";
-          children = ["textbox"];
+          children = [ "textbox" ];
         };
 
         textbox = {

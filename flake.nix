@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     catppuccin.url = "github:catppuccin/nix";
@@ -27,15 +29,30 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
-  outputs = {...} @ inputs: let
-    user = import "${inputs.mysecrets}/tnix5p-user.nix";
-  in {
-    nixosConfigurations.tnix5p = (import ./hosts/tnix5p) {
-      inherit inputs user;
+  outputs =
+    { nixpkgs, flake-parts, ... }@inputs:
+    let
+      user = import "${inputs.mysecrets}/tnix5p-user.nix";
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = nixpkgs.lib.systems.flakeExposed;
+      perSystem =
+        {
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          formatter = pkgs.nixfmt-tree;
+        };
+      flake = {
+        nixosConfigurations.tnix5p = (import ./hosts/tnix5p) {
+          inherit inputs user;
+        };
+        nixosConfigurations.tnix5p-test = (import ./hosts/tnix5p) {
+          inherit inputs user;
+          isVM = true;
+        };
+      };
     };
-    nixosConfigurations.tnix5p-test = (import ./hosts/tnix5p) {
-      inherit inputs user;
-      isVM = true;
-    };
-  };
 }
