@@ -3,6 +3,7 @@
 in {
   imports = [
     ./vscode.nix
+    ./charles/home.nix
   ];
 
   programs.git = {
