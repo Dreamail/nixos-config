@@ -20,7 +20,8 @@ let
     ../../modules/catppuccin-nix
     ../../modules/theme
     #../../modules/sddm use greetd with autologin instead
-    ../../modules/greetd
+    # ../../modules/greetd
+    ../../modules/autologin
     ../../modules/hypr
     ../../modules/waybar
     ../../modules/rofi
