@@ -27,6 +27,7 @@
     enable = true;
     enableUserService = true;
   };
+  boot.kernelParams = [ "acpi_backlight=nvidia_wmi_ec" ];
 
   # linux-g14 form https://gitlab.com/dragonn/linux-g14
   boot.kernelPackages = pkgs.linuxPackagesFor (
