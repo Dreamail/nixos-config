@@ -4,12 +4,31 @@
   ...
 }:
 {
-  services.supergfxd.enable = true;
+  nixpkgs.overlays = [
+    (final: prev: {
+      supergfxctl = prev.supergfxctl.overrideAttrs (previousAttrs: {
+        patches = [ ./supergfxctl.patch ];
+      });
+    })
+  ];
+  services.supergfxd = {
+    enable = true;
+    settings = {
+      mode = "Hybrid";
+      vfio_enable = false;
+      vfio_save = false;
+      always_reboot = false;
+      no_logind = false;
+      logout_timeout_s = 180;
+      hotplug_type = "Asus";
+    };
+  };
+  systemd.services.supergfxd.path = [ pkgs.uwsm ];
   services.asusd = {
     enable = true;
     enableUserService = true;
   };
-  services.logind.killUserProcesses = true;
+  # services.logind.killUserProcesses = true;
 
   # linux-g14 form https://gitlab.com/dragonn/linux-g14
   boot.kernelPackages = pkgs.linuxPackagesFor (
