@@ -1,6 +1,5 @@
 {
   homeModule =
-    { pkgs, ... }:
     {
       services.kdeconnect = {
         enable = true;

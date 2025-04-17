@@ -1,5 +1,5 @@
 {
-  inputs,
+  lib,
   config,
   isVM,
   ...
@@ -14,8 +14,7 @@
     portalPackage = null;
 
     settings = import ./config {
-      lib = inputs.nixpkgs.lib;
-      inherit isVM;
+      inherit lib isVM;
     };
   };
 

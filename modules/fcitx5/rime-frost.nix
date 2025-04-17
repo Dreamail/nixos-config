@@ -3,7 +3,7 @@
   fetchFromGitHub,
   librime,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "rime-frost";
   version = "0.0.5-f17ab9f";
   src = fetchFromGitHub {

@@ -10,9 +10,7 @@ in
     wayland.enable = true;
     theme = "sddm-astronaut-theme";
     package = pkgs.kdePackages.sddm;
-    extraPackages = with pkgs; [
-      sddm-astronaut
-    ];
+    extraPackages = [sddm-astronaut];
   };
 
   environment.systemPackages = [ sddm-astronaut ];

@@ -23,12 +23,10 @@
       hotplug_type = "Asus";
     };
   };
-  systemd.services.supergfxd.path = [ pkgs.uwsm ];
   services.asusd = {
     enable = true;
     enableUserService = true;
   };
-  # services.logind.killUserProcesses = true;
 
   # linux-g14 form https://gitlab.com/dragonn/linux-g14
   boot.kernelPackages = pkgs.linuxPackagesFor (
