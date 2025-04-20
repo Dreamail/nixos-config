@@ -11,6 +11,7 @@
         inputs.nix-gaming.nixosModules.pipewireLowLatency
 
         ./steam/nixos.nix
+        ./osulazer/nixos.nix
       ];
 
       nix.settings = {
