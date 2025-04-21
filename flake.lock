@@ -94,6 +94,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745224732,
+        "narHash": "sha256-0OWgbEKhpMLpk3WQi3ugOwxWW4Y6JVpKiQ+o0nuNzus=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "1770bf1ae5da05564f86b969ef21c7228cc1a70b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -471,10 +491,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1744686760,
-        "narHash": "sha256-ugM/YHZlJZh1PYaqIRW/EEM8zyo2UBq12te6NVMKjLU=",
+        "lastModified": 1745244279,
+        "narHash": "sha256-jlecwRt1EruANKDpUdcnLwYgWzcAOly/knja/0UGd0M=",
         "ref": "refs/heads/master",
-        "rev": "9d42355af00474ba616cbc970fd151343a310e3f",
+        "rev": "c86bfc3934cbf2a7654d16a9545cfdc38bcf5814",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Dreamail/nix-secrets"
@@ -570,6 +590,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-mirror": {
+      "locked": {
+        "lastModified": 1745186803,
+        "narHash": "sha256-e8Q19dW99RsB3YOO+rub4GDgvnv4hn+busZMzkv3Cj8=",
+        "ref": "refs/heads/master",
+        "rev": "b5d9b75f127ae7f4aa36c906f6e1cbb822bc0cb5",
+        "shallow": true,
+        "type": "git",
+        "url": "https://mirrors.cernet.edu.cn/nixpkgs.git"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://mirrors.cernet.edu.cn/nixpkgs.git"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1743583204,
@@ -661,13 +697,15 @@
       "inputs": {
         "agenix": "agenix",
         "catppuccin": "catppuccin",
+        "disko": "disko",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "mysecrets": "mysecrets",
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_5",
+        "nixpkgs-mirror": "nixpkgs-mirror"
       }
     },
     "systems": {

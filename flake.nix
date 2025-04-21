@@ -3,6 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-mirror.url = "git+https://mirrors.cernet.edu.cn/nixpkgs.git?shallow=1";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -52,6 +58,10 @@
         nixosConfigurations.tnix5p-test = (import ./hosts/tnix5p) {
           inherit inputs user;
           isVM = true;
+        };
+
+        nixosConfigurations.aliyun-sas = (import ./hosts/aliyun-sas) {
+          inherit inputs;
         };
       };
     };
