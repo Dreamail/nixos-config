@@ -17,6 +17,9 @@
               sed -i "2i export XCURSOR_SIZE=\''${HIDPI_XPROP:+\''$((\''${XCURSOR_SIZE} * 2))}" $out/bin/{wps,wpp,et,wpspdf,misc,wpsclouddisk}
             '';
         }))
+
+        # NetEase Cloud Music
+        netease-cloud-music-gtk
       ];
 
       wayland.windowManager.hyprland.settings = {
