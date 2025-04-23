@@ -12,4 +12,11 @@
   };
 
   services.wluma.enable = true;
+
+  wayland.windowManager.hyprland.settings = {
+    bindel = [
+      ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+      ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+    ];
+  };
 }
