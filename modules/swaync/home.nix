@@ -9,6 +9,68 @@ in
 {
   services.swaync = {
     enable = true;
+    settings = {
+      positionX = "right";
+      positionY = "top";
+      layer = "overlay";
+      control-center-layer = "top";
+      layer-shell = true;
+      cssPriority = "application";
+      control-center-margin-top = 0;
+      control-center-margin-bottom = 0;
+      control-center-margin-right = 0;
+      control-center-margin-left = 0;
+      notification-2fa-action = true;
+      notification-inline-replies = false;
+      notification-icon-size = 64;
+      notification-body-image-height = 100;
+      notification-body-image-width = 200;
+      timeout = 10;
+      timeout-low = 5;
+      timeout-critical = 0;
+      fit-to-screen = true;
+      relative-timestamps = true;
+      control-center-width = 500;
+      control-center-height = 600;
+      notification-window-width = 500;
+      keyboard-shortcuts = true;
+      image-visibility = "when-available";
+      transition-time = 200;
+      hide-on-action = true;
+      hide-on-clear = false;
+      script-fail-notify = true;
+      widgets = [
+        "inhibitors"
+        "title"
+        "dnd"
+        "mpris"
+        "notifications"
+      ];
+      widget-config = {
+        inhibitors = {
+          text = "Inhibitors";
+          button-text = "Clear All";
+          clear-all-button = true;
+        };
+        title = {
+          text = "Notifications";
+          clear-all-button = true;
+          button-text = "Clear All";
+        };
+        dnd = {
+          text = "Do Not Disturb";
+        };
+        label = {
+          max-lines = 5;
+          text = "Label Text";
+        };
+        mpris = {
+          image-size = 96;
+          image-radius = 12;
+          blur = true;
+        };
+      };
+    };
     style = ''
       * {
         all: unset;
@@ -277,16 +339,47 @@ in
       }
 
       .widget-mpris .widget-mpris-player {
-          background: ${colors.surface0.hex};
-          padding: 7px;
+        padding: 8px;
+        padding: 16px;
+        margin: 16px 20px;
+        background-color: rgba(0, 0, 0, 0.55);
+        border-radius: 12px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
       }
 
-      .widget-mpris .widget-mpris-title {
-          font-size: 1.2rem;
+      .widget-mpris .widget-mpris-player button:hover {
+        /* The media player buttons (play, pause, next, etc...) */
+        background: @noti-bg-hover;
       }
 
-      .widget-mpris .widget-mpris-subtitle {
-          font-size: 0.8rem;
+      .widget-mpris .widget-mpris-player .widget-mpris-album-art {
+        border-radius: 12px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+      }
+
+      .widget-mpris .widget-mpris-player .widget-mpris-title {
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+
+      .widget-mpris .widget-mpris-player .widget-mpris-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .widget-mpris .widget-mpris-player > box > button {
+        border-radius: 8px;
+      }
+
+      .widget-mpris .widget-mpris-player > box > button:hover {
+        background-color: rgba(0, 0, 0, 0.50);
+      }
+
+      .widget-mpris > box > button {
+        border-radius: 8px;
+      }
+
+      .widget-mpris > box > button:disabled {
+        /* Change player side buttons insensitive */
       }
 
       .widget-menubar>box>.menu-button-bar>button>label {
