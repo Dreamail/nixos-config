@@ -36,6 +36,7 @@ let
     ../../modules/copyq
     ../../modules/screenshot
     ../../modules/kdeconnect
+    ../../modules/sync-tools
     ../../modules/fcitx5
 
     ../../modules/dev-tools
