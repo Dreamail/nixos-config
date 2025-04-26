@@ -23,6 +23,7 @@
 
   time.timeZone = "Asia/Shanghai";
 
+  networking.firewall.enable = false;
   services.openssh.enable = true;
   services.qemuGuest.enable = true;
   services.cloud-init = {
@@ -43,5 +44,5 @@
 
   users.users.root.openssh.authorizedKeys.keys = (import "${inputs.mysecrets}/public-keys.nix").users;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }
