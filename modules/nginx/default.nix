@@ -9,7 +9,6 @@
     in
     {
       age.secrets.acme-alidns.file = "${inputs.mysecrets}/acme-alidns.age";
-      age.secrets.acme-zerossl.file = "${inputs.mysecrets}/acme-zerossl.age";
       security.acme = {
         acceptTerms = true;
         defaults.email = email;
