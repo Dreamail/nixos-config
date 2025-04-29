@@ -512,10 +512,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1745741161,
-        "narHash": "sha256-UDKIatSmOQtlLdL2NGMJ9LXqf2HjL0231ZDJVo/Nj60=",
+        "lastModified": 1745847986,
+        "narHash": "sha256-fX6mpu0SqqvnFfBeixg90kgs+maB8uGHVnx8jBnQ6E4=",
         "ref": "refs/heads/master",
-        "rev": "32f4e9a129994aed55c1057e8bbe161e3057f501",
+        "rev": "53690368e69a704379ae8cbeff8220e4678bad55",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Dreamail/nix-secrets"

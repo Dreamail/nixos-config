@@ -12,6 +12,7 @@ let
     ./modules/hyprland
     ./modules/backlight
     ./modules/power
+    ./modules/secrets
 
     ../../modules/secrets
 
@@ -38,6 +39,7 @@ let
     ../../modules/kdeconnect
     ../../modules/sync-tools
     ../../modules/fcitx5
+    ../../modules/tailscale
 
     ../../modules/dev-tools
     ../../modules/game

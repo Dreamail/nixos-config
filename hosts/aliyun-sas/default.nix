@@ -3,8 +3,12 @@ let
   lib = inputs.nixpkgs-mirror.lib;
 
   module_paths = [
+    ./modules/secrets
+    
     ../../modules/nginx
     ../../modules/vaultwarden
+    ../../modules/tailscale
+    ../../modules/tailscale/headscale
   ];
   modules = lib.forEach module_paths (x: import x);
 
@@ -16,9 +20,6 @@ lib.nixosSystem {
   modules = [
     inputs.disko.nixosModules.disko
     inputs.agenix.nixosModules.default
-    {
-      age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-    }
     ./disko-config.nix
     ./hardware-configuration.nix
     ./core.nix
