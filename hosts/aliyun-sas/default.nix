@@ -4,6 +4,7 @@ let
 
   module_paths = [
     ./modules/secrets
+    ./modules/tailscale
     
     ../../modules/nginx
     ../../modules/vaultwarden
