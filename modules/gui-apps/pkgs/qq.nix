@@ -5,10 +5,10 @@
 }:
 let
   pname = "qq-linux";
-  version = "3.2.16_250401";
+  version = "3.2.17-34231";
   appimage = fetchurl {
-    url = "https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_${version}_x86_64_01.AppImage";
-    hash = "sha256-M++enPKnFXYxnHjkkHf/0/2xYVvM1VAG8WZeScnLxuU=";
+    url = "https://dldir1.qq.com/qqfile/qq/QQNT/d4ef758e/linuxqq_3.2.17-34231_x86_64.AppImage";
+    hash = "sha256-m16hzx+/d/k3vxOvhIN3IoZN1pMOoYT63AZMB04603s=";
   };
   src = appimageTools.extract {
     src = appimage;
@@ -36,6 +36,8 @@ appimageTools.wrapAppImage {
     "--ro-bind-try \${HOME}/.local/share/fonts{,}"
     "--ro-bind-try \${HOME}/.icons{,}"
     "--ro-bind-try \${HOME}/.local/share/.icons{,}"
+
+    "--size 1 --tmpfs \${HOME}/.config/QQ/versions"
   ];
   chdirToPwd = false;
   unshareUser = true;
