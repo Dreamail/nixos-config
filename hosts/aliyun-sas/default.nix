@@ -10,6 +10,7 @@ let
     ../../modules/vaultwarden
     ../../modules/tailscale
     ../../modules/tailscale/headscale
+    ../../modules/frp/server
   ];
   modules = lib.forEach module_paths (x: import x);
 
