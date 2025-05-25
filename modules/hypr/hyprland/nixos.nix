@@ -9,7 +9,7 @@ let
   hyprland-patch = pkgs.fetchpatch {
     name = "hyprland-hidpi-xprop.patch";
     url = "https://patch-diff.githubusercontent.com/raw/hyprwm/Hyprland/pull/6446.patch";
-    hash = "sha256-60g1EvEoa/733teiMSdUCxfgrwfc/JgWTcDN49D74V4=";
+    hash = "sha256-Hic86sWyuWAODTsINr/rI5r5DJe7U4U62OjzDJ3NbpU=";
   };
   xwayland-patch = pkgs.fetchpatch {
     name = "xwayland-hidpi-xprop.patch";
