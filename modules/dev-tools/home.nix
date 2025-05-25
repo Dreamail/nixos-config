@@ -8,10 +8,13 @@ in
     ./vscode.nix
     ./charles/home.nix
     ./nix.nix
+    ./unity.nix
+    ./jetbrains.nix
   ];
 
   programs.git = {
     enable = true;
+    lfs.enable = true;
     userName = git-config.userName;
     userEmail = git-config.userEmail;
   };
