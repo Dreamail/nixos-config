@@ -12,6 +12,7 @@ let
     ../../modules/tailscale/headscale
     ../../modules/frp/server
     ../../modules/qbot
+    ../../modules/git-lfs-server
   ];
   modules = lib.forEach module_paths (x: import x);
 
