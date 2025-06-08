@@ -5,5 +5,8 @@
 
     # Vendor Staff
     ./asus.nix
+
+    # Logitech Staff
+    ./logitech.nix
   ];
 }

@@ -59,6 +59,7 @@ lib.nixosSystem {
 
     inputs.catppuccin.nixosModules.catppuccin
     inputs.agenix.nixosModules.default
+    inputs.solaar.nixosModules.default
 
     inputs.home-manager.nixosModules.home-manager
     {

@@ -8,10 +8,4 @@
       scroll_factor = 0.35;
     };
   };
-  device = [
-    {
-      name = "asup1205:00-093a:2008-touchpad";
-      sensitivity = 0.1;
-    }
-  ];
 }
