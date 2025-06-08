@@ -10,6 +10,7 @@ in
     ./nix.nix
     ./unity.nix
     ./jetbrains.nix
+    ./idapro/home.nix
   ];
 
   programs.git = {
