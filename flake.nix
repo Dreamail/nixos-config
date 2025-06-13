@@ -45,6 +45,11 @@
       #url = "github:Svenum/Solaar-Flake/main"; # Uncomment line for latest unstable version
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    winapps = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:winapps-org/winapps";
+    };
   };
 
   outputs =

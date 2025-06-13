@@ -1,6 +1,6 @@
 {
   homeModule =
-    { pkgs, ... }:
+    { inputs, pkgs, ... }:
     {
       home.packages = with pkgs; [
         # Web Browser
@@ -20,6 +20,9 @@
 
         # NetEase Cloud Music
         netease-cloud-music-gtk
+
+        # winapps
+        inputs.winapps.packages."${pkgs.system}".winapps
       ];
 
       wayland.windowManager.hyprland.settings = {
@@ -47,5 +50,13 @@
       nixpkgs.overlays = [
         inputs.nur.overlays.default
       ];
+      nix.settings = {
+        substituters = [
+          "https://winapps.cachix.org/"
+        ];
+        trusted-public-keys = [
+          "winapps.cachix.org-1:HI82jWrXZsQRar/PChgIx1unmuEsiQMQq+zt05CD36g="
+        ];
+      };
     };
 }
