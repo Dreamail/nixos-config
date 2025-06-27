@@ -13,5 +13,6 @@ in
 {
   home.packages = [
     osu-lazer-bin-wayland
+    (pkgs.callPackage ./tosu {})
   ];
 }
