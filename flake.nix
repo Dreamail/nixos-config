@@ -17,7 +17,10 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:Dreamail/Hyprland/sync-xwl-clipboard";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     catppuccin.url = "github:catppuccin/nix";
 

@@ -6,15 +6,15 @@
 }:
 let
   # use patch to support scaling xwayland windows
-  hyprland-patch = pkgs.fetchpatch {
+  hyprland-hidpi-patch = pkgs.fetchpatch {
     name = "hyprland-hidpi-xprop.patch";
-    url = "https://patch-diff.githubusercontent.com/raw/hyprwm/Hyprland/pull/6446.patch";
-    hash = "sha256-Hic86sWyuWAODTsINr/rI5r5DJe7U4U62OjzDJ3NbpU=";
+    url = "https://github.com/hyprwm/Hyprland/commit/48d3a4996db860ed9607eaad4cd73ad5228ca83e.patch";
+    hash = "sha256-HJZpHvv0KTzhfw0vgGYrs06yMUCvKSh2QrpE7cXKzCE=";
   };
   xwayland-patch = pkgs.fetchpatch {
     name = "xwayland-hidpi-xprop.patch";
     url = "https://aur.archlinux.org/cgit/aur.git/plain/hidpi.patch?h=xorg-xwayland-hidpi-xprop";
-    hash = "sha256-wAsBSyp0B52jC586lDWBV6TTkLuQqEr3juOEus83GTo=";
+    hash = "sha256-e1Yv2s9rDV5L0sVlwbsjmlgzOv8csCrPQ9aZSuZuEDQ=";
   };
   xwayland = pkgs.xwayland.overrideAttrs (previousArgs: {
     patches = [ xwayland-patch ];
@@ -37,7 +37,7 @@ in
 
     package =
       (inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.overrideAttrs {
-        patches = [ hyprland-patch ];
+        patches = [ hyprland-hidpi-patch ];
       }).override
         {
           inherit xwayland;
