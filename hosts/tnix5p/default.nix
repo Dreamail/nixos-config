@@ -52,9 +52,10 @@ let
   nixosModules = lib.forEach modules (x: x.nixosModule);
   homeModules = lib.forEach modules (x: x.homeModule);
 in
-lib.nixosSystem {
+inputs.nixpkgs-patcher.lib.nixosSystem {
   system = "x86_64-linux";
   specialArgs = { inherit inputs user isVM; };
+  nixpkgsPatcher.nixpkgs = inputs.nixpkgs;
   modules = [
     ./core.nix
 

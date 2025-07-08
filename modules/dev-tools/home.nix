@@ -8,7 +8,7 @@ in
     ./vscode.nix
     ./charles/home.nix
     ./nix.nix
-    ./unity.nix
+    ./unity/home.nix
     ./jetbrains.nix
     ./idapro/home.nix
   ];

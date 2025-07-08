@@ -10,7 +10,7 @@ let
     url = "magnet:?xt=urn:btih:f24cfadb8a66b343bf1ff4f0c1386a5f6991c818&dn=ida91";
     hash = "sha256-B3zzhmQ0M39Xfg0i6KOHwCx4HJqny74ShXf870ahQo4=";
   };
-  pythonForIDA = pkgs.python3.withPackages (ps: with ps; [ rpyc ]);
+  pythonForIDA = pkgs.python313.withPackages (ps: with ps; [ rpyc ]);
 in
 pkgs.stdenv.mkDerivation rec {
   pname = "ida-pro";
@@ -114,7 +114,7 @@ pkgs.stdenv.mkDerivation rec {
     done
 
     # Manually patch libraries that dlopen stuff.
-    patchelf --add-needed libpython3.12.so $out/lib/libida.so
+    patchelf --add-needed libpython3.13.so $out/lib/libida.so
     patchelf --add-needed libcrypto.so $out/lib/libida.so
 
     # Some libraries come with the installer.

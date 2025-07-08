@@ -31,44 +31,56 @@
 
   # linux-g14 form https://gitlab.com/dragonn/linux-g14
   boot.kernelPackages = pkgs.linuxPackagesFor (
-    pkgs.linux_6_13.override {
+    pkgs.linux_6_15.override {
       argsOverride =
         let
           g14 = pkgs.fetchFromGitLab {
             owner = "dragonn";
             repo = "linux-g14";
-            rev = "83010b4bc2a12fe18ab3532b6eea60e90db18d91";
-            hash = "sha256-ShKxLGb7tO97onL3AopNBMnN6Yoa0Eri2eHct0zS9y0=";
+            rev = "d234698be87ecf7d7d345261df22cbb0b5f1cad1";
+            hash = "sha256-M1tapIixkqxZt9Uds1M49iaFWf7sruVxH570dd3wrJA=";
           };
         in
         rec {
+          stdenv = pkgs.stdenvAdapters.addAttrsToDerivation {
+            # Hacky way to add patch flags so that the patches can be applied correctly
+            patchFlags = [
+              "-Np1"
+              "-F150"
+            ];
+          } pkgs.stdenv;
+
           src = pkgs.fetchurl {
             url = "mirror://kernel/linux/kernel/v${lib.versions.major version}.x/linux-${version}.tar.xz";
-            sha256 = "3a39b62038b7ac2f43d26a1f84b4283e197804e1e817ad637e9a3d874c47801d";
+            hash = "sha256-Dq/WJ7YC9Y1zkX0A5PwxlroYy6Z99plaQqp0dE2O+hY=";
           };
-          version = "6.13.7";
-          modDirVersion = "6.13.7";
+          version = "6.15.4";
+          modDirVersion = "6.15.4";
 
           kernelPatches = [
             {
-              name = "sys-kernel_arch-sources-g14_files-0004-more-uarches-for-kernel-6.8-rc4+";
-              patch = builtins.fetchurl {
-                name = "lite-more-x86-64-ISA-levels-for-kernel-6.8-rc4+.patch";
-                url = "https://raw.githubusercontent.com/graysky2/kernel_compiler_patch/refs/heads/master/lite-more-x86-64-ISA-levels-for-kernel-6.8-rc4%2B.patch";
-                sha256 = "a6045647f030f2686b2c42075569a40ca9833f559dcd2cdebd01b1964e7388cd";
-              };
+              name = "sys-kernel_arch-sources-g14_files-0004-more-uarches-for-kernel-6.15";
+              patch = "${g14}/sys-kernel_arch-sources-g14_files-0004-more-uarches-for-kernel-6.15.patch";
             }
             {
               name = "acpi-proc-idle-skip-dummy-wait";
               patch = "${g14}/0001-acpi-proc-idle-skip-dummy-wait.patch";
             }
-            # {
-            #   name = "platform-x86-amd-pmf-Add-quirk-for-ROG-Ally-X";
-            #   patch = "${g14}/0001-platform-x86-amd-pmf-Add-quirk-for-ROG-Ally-X.patch";
-            # }
             {
               name = "asus-patch-series";
               patch = "${g14}/asus-patch-series.patch";
+            }
+            {
+              name = "0004-asus-armoury_improve_xgm_support.patch";
+              patch = "${g14}/0004-asus-armoury_improve_xgm_support.patch";
+            }
+            {
+              name = "0003-asus-armoury_make_xg_mobile_plug-and-play.patch";
+              patch = "${g14}/0003-asus-armoury_make_xg_mobile_plug-and-play.patch";
+            }
+            {
+              name = "0002-auto-brigthness.patch";
+              patch = "${g14}/0002-auto-brigthness.patch";
             }
             {
               name = "acpi-x86-s2idle-Add-ability-to-configure-wakeup-by-A";
@@ -78,34 +90,14 @@
               name = "hid-asus-change-the-report_id-used-for-HID-LED-co";
               patch = "${g14}/v2-0002-hid-asus-change-the-report_id-used-for-HID-LED-co.patch";
             }
-            # {
-            #   name = "workaround_hardware_decoding_amdgpu";
-            #   patch = "${g14}/0040-workaround_hardware_decoding_amdgpu.patch";
-            # }
-            # {
-            #   name = "amdgpu-adjust_plane_init_off_by_one.patch";
-            #   patch = "${g14}/0081-amdgpu-adjust_plane_init_off_by_one.patch";
-            # }
-            # {
-            #   name = "amd-add-GA605W-H706-quirks";
-            #   patch = "${g14}/0082-amd-add-GA605W-H706-quirks.patch";
-            # }
             {
-              name = "enable-steam-deck-hdr";
-              patch = "${g14}/0084-enable-steam-deck-hdr.patch";
+              name = "PATCH-v3-0-5-Improvements-to-S5-power-consumption.patch";
+              patch = "${g14}/PATCH-v3-0-5-Improvements-to-S5-power-consumption.patch";
             }
-            # {
-            #   name = "HID-amd_sfh-Add-support-for-tablet-mode";
-            #   patch = "${g14}/PATCH-0-1-HID-amd_sfh-Add-support-for-tablet-mode.patch";
-            # }
-            # {
-            #   name = "sys-kernel_arch-sources-g14_files-0047-asus-nb-wmi-Add-tablet_mode_sw-lid-flip";
-            #   patch = "${g14}/sys-kernel_arch-sources-g14_files-0047-asus-nb-wmi-Add-tablet_mode_sw-lid-flip.patch";
-            # }
-            # {
-            #   name = "sys-kernel_arch-sources-g14_files-0048-asus-nb-wmi-fix-tablet_mode_sw_int";
-            #   patch = "${g14}/sys-kernel_arch-sources-g14_files-0048-asus-nb-wmi-fix-tablet_mode_sw_int.patch";
-            # }
+            {
+              name = "PATCH-mm-Add-Kcompressd-for-accelerated-memory-compression.patch";
+              patch = "${g14}/PATCH-mm-Add-Kcompressd-for-accelerated-memory-compression.patch";
+            }
             {
               name = "linux-g14-config";
               patch = null;
