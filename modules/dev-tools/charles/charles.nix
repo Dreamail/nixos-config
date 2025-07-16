@@ -106,7 +106,7 @@ let
               mkdir -p $out/lib/jdk && cp -a ./lib/jdk/* $out/lib/jdk
               for bin in $( find "$out/lib/jdk" -executable -type f -not -name jspawnhelper ); do
                 if patchelf --print-interpreter "$bin" &> /dev/null; then
-                  wrapProgram "$bin" --prefix LD_LIBRARY_PATH : "${runtimeLibraryPath}"
+                  wrapProgram "$bin" --prefix LD_LIBRARY_PATH : "${runtimeLibraryPath}" --prefix PATH : "${glib}/bin"
                 fi
               done
               JAVA=$out/lib/jdk
