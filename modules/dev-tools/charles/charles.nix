@@ -52,7 +52,7 @@ let
         desktopName = "Charles";
         exec = "charles %F";
         genericName = "Web Debugging Proxy";
-        icon = "charles-proxy";
+        icon = if (lib.versionAtLeast version "5.0") then "charles-proxy5" else "charles-proxy";
         mimeTypes = [
           "application/x-charles-savedsession"
           "application/x-charles-savedsession+xml"
@@ -125,6 +125,9 @@ let
 
         mkdir -p $out/share/icons
         cp -r icon $out/share/icons/hicolor
+
+        mkdir -p $out/share/mime/packages
+        cp -r etc/mime/* $out/share/mime/packages/
       '';
 
       preFixup =
