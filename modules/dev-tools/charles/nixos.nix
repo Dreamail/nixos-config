@@ -4,7 +4,7 @@
   ...
 }:
 let
-  charles-hidpi = pkgs.charles.overrideAttrs (previousAttrs: {
+  charles-hidpi = (pkgs.callPackage ./charles.nix { }).charles5.overrideAttrs (previousAttrs: {
     nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ pkgs.makeWrapper ];
     installPhase =
       previousAttrs.installPhase
