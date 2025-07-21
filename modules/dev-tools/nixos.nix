@@ -5,7 +5,6 @@
     ./clash-verge.nix
     ./charles/nixos.nix
     ./docker.nix
-    ./unity/nixos.nix
   ];
 
   environment.systemPackages = with pkgs; [

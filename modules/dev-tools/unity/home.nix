@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
-  unityhub-hidpi = pkgs.unityhub.overrideAttrs (previousAttrs: {
+  unityhub-libxml2-fixed = pkgs.callPackage ./unityhub.nix { };
+  unityhub-hidpi = unityhub-libxml2-fixed.overrideAttrs (previousAttrs: {
     nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ pkgs.makeWrapper ];
     installPhase =
       previousAttrs.installPhase
@@ -13,6 +14,7 @@ in
 {
   home.packages = with pkgs; [
     unityhub-hidpi
+    unityhub-hidpi.fhsEnv
     mono
     dotnet-sdk
     dotnetPackages.Nuget
