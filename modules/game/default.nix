@@ -2,6 +2,7 @@
   homeModule = {
     imports = [
       ./osulazer/home.nix
+      ./steam/home.nix
     ];
   };
   nixosModule =
