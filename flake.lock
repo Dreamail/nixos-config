@@ -715,22 +715,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-mirror": {
-      "locked": {
-        "lastModified": 1745186803,
-        "narHash": "sha256-e8Q19dW99RsB3YOO+rub4GDgvnv4hn+busZMzkv3Cj8=",
-        "ref": "refs/heads/master",
-        "rev": "b5d9b75f127ae7f4aa36c906f6e1cbb822bc0cb5",
-        "shallow": true,
-        "type": "git",
-        "url": "https://mirrors.cernet.edu.cn/nixpkgs.git"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://mirrors.cernet.edu.cn/nixpkgs.git"
-      }
-    },
     "nixpkgs-patcher": {
       "locked": {
         "lastModified": 1750881771,
@@ -851,7 +835,6 @@
         "nix-gaming": "nix-gaming",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-mirror": "nixpkgs-mirror",
         "nixpkgs-patcher": "nixpkgs-patcher",
         "nur": "nur",
         "solaar": "solaar",

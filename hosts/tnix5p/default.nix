@@ -44,7 +44,7 @@ let
     ../../modules/dev-tools
     ../../modules/game
     ../../modules/gui-apps
-    ../../modules/frp/client
+    ../../modules/frpc
     ../../modules/obsstudio
   ];
   modules = lib.forEach module_paths (x: import x);

@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-mirror.url = "git+https://mirrors.cernet.edu.cn/nixpkgs.git?shallow=1";
 
     nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
 
@@ -78,10 +77,6 @@
         nixosConfigurations.tnix5p-test = (import ./hosts/tnix5p) {
           inherit inputs user;
           isVM = true;
-        };
-
-        nixosConfigurations.aliyun-sas = (import ./hosts/aliyun-sas) {
-          inherit inputs;
         };
       };
     };
