@@ -8,8 +8,13 @@ let
   # use patch to support scaling xwayland windows
   hyprland-hidpi-patch = pkgs.fetchpatch {
     name = "hyprland-hidpi-xprop.patch";
-    url = "https://github.com/hyprwm/Hyprland/commit/48d3a4996db860ed9607eaad4cd73ad5228ca83e.patch";
-    hash = "sha256-HJZpHvv0KTzhfw0vgGYrs06yMUCvKSh2QrpE7cXKzCE=";
+    url = "https://github.com/hyprwm/Hyprland/commit/5a712257e12837b9dc21cdf71fa1b8433897cd19.patch";
+    hash = "sha256-RgkSai/esZ1wTILalhCXxWo3S/MN7thLN8b/eWgdNh8=";
+  };
+  hyprland-always-copy-xwl-patch = pkgs.fetchpatch {
+    name = "hyprland-always-copy-xwl.patch";
+    url = "https://github.com/hyprwm/Hyprland/commit/104493dfb42e8229f593e995ef38af9e40ded66c.patch";
+    hash = "sha256-s6H2RkTHKLDcOfJraQDwF6vwI/qz5svC6BdGxQpX4SM=";
   };
   xwayland-patch = pkgs.fetchpatch {
     name = "xwayland-hidpi-xprop.patch";
@@ -37,7 +42,10 @@ in
 
     package =
       (inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.overrideAttrs {
-        patches = [ hyprland-hidpi-patch ];
+        patches = [
+          hyprland-hidpi-patch
+          hyprland-always-copy-xwl-patch
+        ];
       }).override
         {
           inherit xwayland;
