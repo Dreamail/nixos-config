@@ -57,6 +57,8 @@
           version = "6.15.4";
           modDirVersion = "6.15.4";
 
+          ignoreConfigErrors = true;
+
           kernelPatches = [
             {
               name = "sys-kernel_arch-sources-g14_files-0004-more-uarches-for-kernel-6.15";
@@ -102,61 +104,48 @@
               name = "linux-g14-config";
               patch = null;
               structuredExtraConfig = with lib.kernel; {
-                # CONFIG_PINCTRL_AMD = yes;
-                # CONFIG_X86_AMD_PSTATE = yes;
-                # CONFIG_AMD_PMC = module;
-
-                CONFIG_MODULE_COMPRESS_NONE = no;
-                CONFIG_MODULE_COMPRESS_ZSTD = yes;
+                # PINCTRL_AMD = yes;
+                # X86_AMD_PSTATE = yes;
+                # AMD_PMC = module;
 
                 ## SET default LRU parameters
-                CONFIG_LRU_GEN = yes;
-                CONFIG_LRU_GEN_ENABLED = yes;
-                CONFIG_LRU_GEN_STATS = no;
-                CONFIG_NR_LRU_GENS = 7;
-                CONFIG_TIERS_PER_GEN = 4;
+                LRU_GEN = yes;
+                LRU_GEN_ENABLED = yes;
+                LRU_GEN_STATS = no;
 
                 # DISABLE not need modules on ROG laptops
                 # XXX: I'm going to make an opinionated decision here and save everyone some compilation time
                 # XXX: on drivers almost no-one is going to use; if you need any of theese turn them on in myconfig
-                CONFIG_INFINIBAND = no;
-                CONFIG_DRM_NOUVEAU = no;
-                CONFIG_PCMCIA_WL3501 = no;
-                CONFIG_PCMCIA_RAYCS = no;
-                CONFIG_IWL3945 = no;
-                CONFIG_IWL4965 = no;
-                CONFIG_IPW2200 = no;
-                CONFIG_IPW2100 = no;
-                CONFIG_FB_NVIDIA = no;
-                CONFIG_SENSORS_ASUS_EC = no;
-                CONFIG_SENSORS_ASUS_WMI_EC = no;
+                INFINIBAND = lib.mkForce no;
+                DRM_NOUVEAU = no;
+                IWL3945 = no;
+                IWL4965 = no;
+                IPW2200 = no;
+                IPW2100 = no;
+                FB_NVIDIA = no;
+                SENSORS_ASUS_EC = no;
 
                 # select slightly more sane block device driver options; NVMe really should be built in
-                CONFIG_RAPIDIO = no;
-                CONFIG_CDROM = module;
-                CONFIG_PARIDE = no;
+                RAPIDIO = no;
+                CDROM = module;
 
                 # bake in s0ix debugging parameters so we get useful problem reports re: suspend
-                # CONFIG_CMDLINE_BOOL = yes;
-                # CONFIG_CMDLINE = "ibt=off pm_debug_messages amd_pmc.dyndbg=\"+p\" acpi.dyndbg=\"file drivers/acpi/x86/s2idle.c +p\"";
+                # CMDLINE_BOOL = yes;
+                # CMDLINE = "ibt=off pm_debug_messages amd_pmc.dyndbg=\"+p\" acpi.dyndbg=\"file drivers/acpi/x86/s2idle.c +p\"";
                 # CMDLINE_OVERRIDE = no;
 
                 # enable back EFI_HANDOVER_PROTOCOL and EFI_STUB
-                CONFIG_EFI_HANDOVER_PROTOCOL = yes;
-                CONFIG_EFI_STUB = yes;
+                EFI_HANDOVER_PROTOCOL = yes;
+                EFI_STUB = yes;
 
                 # try to fix stuttering on some ROG laptops
-                CONFIG_HW_RANDOM_TPM = no;
+                HW_RANDOM_TPM = no;
 
                 # enable SCHED_CLASS_EXT
-                CONFIG_SCHED_CLASS_EXT = yes;
+                SCHED_CLASS_EXT = yes;
 
-                # enable CONFIG_ASUS_ARMOURY
-                CONFIG_ASUS_WMI_BIOS = yes;
-                CONFIG_HID_ASUS_ALLY = module;
-                CONFIG_ASUS_ARMOURY = yes;
-                CONFIG_ASUS_WMI_DEPRECATED_ATTRS = yes;
-                CONFIG_DRM_AMD_COLOR_STEAMDECK = yes;
+                # enable ASUS_ARMOURY
+                ASUS_ARMOURY = module;
               };
             }
           ];
