@@ -8,7 +8,7 @@ let
   ida91-bit = fetchtorrent {
     backend = "rqbit";
     url = "magnet:?xt=urn:btih:f24cfadb8a66b343bf1ff4f0c1386a5f6991c818&dn=ida91";
-    hash = "sha256-B3zzhmQ0M39Xfg0i6KOHwCx4HJqny74ShXf870ahQo4=";
+    hash = "sha256-ruS4OSLu5oT6Yr7bK5HZmQ/6pRaqAtBjyG71Hp2W0GQ=";
   };
   pythonForIDA = pkgs.python313.withPackages (ps: with ps; [ rpyc ]);
 in
@@ -16,7 +16,7 @@ pkgs.stdenv.mkDerivation rec {
   pname = "ida-pro";
   version = "9.1.0.250226";
 
-  src = "${ida91-bit}/ida91/ida-pro_91_x64linux.run";
+  src = "${ida91-bit}/ida-pro_91_x64linux.run";
 
   desktopItem = pkgs.makeDesktopItem {
     name = "ida-pro";
@@ -105,7 +105,7 @@ pkgs.stdenv.mkDerivation rec {
       --mode unattended --debuglevel 4 --prefix $IDADIR
 
     # Crack
-    cp ${ida91-bit}/ida91/kg_patch/linux/* $IDADIR
+    cp ${ida91-bit}/kg_patch/linux/* $IDADIR
 
 
     # Link the exported libraries to the output.

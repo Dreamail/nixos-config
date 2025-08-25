@@ -10,7 +10,7 @@
 let
   nodejs-header = fetchurl {
     url = "https://nodejs.org/download/release/v${nodejs.version}/node-v${nodejs.version}-headers.tar.gz";
-    sha256 = "sha256-pg5aVD+rXlEFUllIxZbUl0xhfzlgbO9265TDvx35oGw=";
+    sha256 = "sha256-SqhZxBPmyFUAFb4WsKVd+FNYpw5KwfBK0j7kLoVmwTw=";
   };
 in
 stdenv.mkDerivation (finalAttrs: {
@@ -37,6 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
       version
       src
       ;
+    fetcherVersion = 1;
     hash = "sha256-sWSj834k6nBczf2iWHTqvFLeNzyPFJwdlYdO3DZ54iE=";
   };
 
