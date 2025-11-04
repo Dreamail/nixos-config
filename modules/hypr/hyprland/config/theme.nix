@@ -12,6 +12,7 @@
     blur = {
       size = 8;
       passes = 4;
+      xray = true;
       special = true;
     };
   };
