@@ -14,21 +14,6 @@
         syncclipboard-script
       ];
 
-      systemd.user.services."syncclipboard-script" = {
-        Unit = {
-          Description = "SyncClipboard Script";
-          PartOf = [ "graphical-session.target" ];
-          After = [ "graphical-session.target" ];
-        };
-        Service = {
-          ExecStart = "${syncclipboard-script}/bin/syncclipboard-script.sh daemon";
-          Restart = "on-failure";
-        };
-        Install = {
-          WantedBy = [ "graphical-session.target" ];
-        };
-      };
-
       wayland.windowManager.hyprland.settings = {
         exec-once = [ "uwsm app -- localsend_app --hidden" ];
         windowrulev2 = [
