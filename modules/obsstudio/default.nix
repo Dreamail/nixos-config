@@ -38,6 +38,7 @@
           obs-pipewire-audio-capture
           obs-vaapi
           obs-vkcapture
+          (pkgs.callPackage ./plugins/droidcam.nix {})
         ];
       };
     };
