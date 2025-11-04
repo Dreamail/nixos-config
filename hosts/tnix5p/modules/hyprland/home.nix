@@ -4,6 +4,7 @@
       monitor = [
         "eDP-1, prefer, auto, 1.67"
         "HDMI-A-3, prefer, auto-left, 1.25"
+        "DP-1, prefer, auto-right, 1.25"
       ];
       device = [
       {
