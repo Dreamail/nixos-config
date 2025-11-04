@@ -1,6 +1,8 @@
 { pkgs, ... }:
 let
-  unityhub-libxml2-fixed = pkgs.callPackage ./unityhub.nix { };
+  unityhub-libxml2-fixed = pkgs.callPackage ./unityhub.nix { 
+    extraPkgs = pkgs: [ pkgs.uv ];
+  };
   unityhub-hidpi = unityhub-libxml2-fixed.overrideAttrs (previousAttrs: {
     nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ pkgs.makeWrapper ];
     installPhase =
