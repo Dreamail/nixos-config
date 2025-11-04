@@ -1,9 +1,7 @@
 { inputs, ... }:
-let
-  git-config = import "${inputs.mysecrets}/git-config.nix";
-in
 {
   imports = [
+    ./git.nix
     ./terminal/home.nix
     ./vscode.nix
     ./charles/home.nix
@@ -12,11 +10,4 @@ in
     ./jetbrains.nix
     ./idapro/home.nix
   ];
-
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    userName = git-config.userName;
-    userEmail = git-config.userEmail;
-  };
 }
