@@ -31,14 +31,14 @@
 
   # linux-g14 form https://gitlab.com/dragonn/linux-g14
   boot.kernelPackages = pkgs.linuxPackagesFor (
-    pkgs.linux_6_15.override {
+    pkgs.linux_6_17.override {
       argsOverride =
         let
           g14 = pkgs.fetchFromGitLab {
             owner = "dragonn";
             repo = "linux-g14";
-            rev = "d234698be87ecf7d7d345261df22cbb0b5f1cad1";
-            hash = "sha256-M1tapIixkqxZt9Uds1M49iaFWf7sruVxH570dd3wrJA=";
+            rev = "e64cd71a63c2b6fdae0ee2b801a3d24e14f10a1c";
+            hash = "sha256-CxC9EX1ruiAH8IHC9NeY3zlfzort0NNOtI3CV0bGRfk=";
           };
         in
         rec {
@@ -52,10 +52,10 @@
 
           src = pkgs.fetchurl {
             url = "mirror://kernel/linux/kernel/v${lib.versions.major version}.x/linux-${version}.tar.xz";
-            hash = "sha256-Dq/WJ7YC9Y1zkX0A5PwxlroYy6Z99plaQqp0dE2O+hY=";
+            hash = "sha256-js+8a2k0SKu0YUSo0E0eFjFjnHZhwQiEJaLlQG8Txpw=";
           };
-          version = "6.15.4";
-          modDirVersion = "6.15.4";
+          version = "6.17.6";
+          modDirVersion = "6.17.6";
 
           ignoreConfigErrors = true;
 
@@ -65,24 +65,24 @@
               patch = "${g14}/sys-kernel_arch-sources-g14_files-0004-more-uarches-for-kernel-6.15.patch";
             }
             {
+              name = "PATCH-v17-0-9-platform-x86-Add-asus-armoury-driver";
+              patch = "${g14}/PATCH-v17-0-9-platform-x86-Add-asus-armoury-driver.patch";
+            }
+            {
               name = "acpi-proc-idle-skip-dummy-wait";
               patch = "${g14}/0001-acpi-proc-idle-skip-dummy-wait.patch";
             }
             {
+              name = "PATCH-v5-00-11-Improvements-to-S5-power-consumption";
+              patch = "${g14}/PATCH-v5-00-11-Improvements-to-S5-power-consumption.patch";
+            }
+            {
+              name = "PATCH-asus-wmi-fixup-screenpad-brightness";
+              patch = "${g14}/PATCH-asus-wmi-fixup-screenpad-brightness.patch";
+            }
+            {
               name = "asus-patch-series";
               patch = "${g14}/asus-patch-series.patch";
-            }
-            {
-              name = "0004-asus-armoury_improve_xgm_support.patch";
-              patch = "${g14}/0004-asus-armoury_improve_xgm_support.patch";
-            }
-            {
-              name = "0003-asus-armoury_make_xg_mobile_plug-and-play.patch";
-              patch = "${g14}/0003-asus-armoury_make_xg_mobile_plug-and-play.patch";
-            }
-            {
-              name = "0002-auto-brigthness.patch";
-              patch = "${g14}/0002-auto-brigthness.patch";
             }
             {
               name = "acpi-x86-s2idle-Add-ability-to-configure-wakeup-by-A";
@@ -91,14 +91,6 @@
             {
               name = "hid-asus-change-the-report_id-used-for-HID-LED-co";
               patch = "${g14}/v2-0002-hid-asus-change-the-report_id-used-for-HID-LED-co.patch";
-            }
-            {
-              name = "PATCH-v3-0-5-Improvements-to-S5-power-consumption.patch";
-              patch = "${g14}/PATCH-v3-0-5-Improvements-to-S5-power-consumption.patch";
-            }
-            {
-              name = "PATCH-mm-Add-Kcompressd-for-accelerated-memory-compression.patch";
-              patch = "${g14}/PATCH-mm-Add-Kcompressd-for-accelerated-memory-compression.patch";
             }
             {
               name = "linux-g14-config";
