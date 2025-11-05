@@ -8,8 +8,8 @@ let
   # use patch to support scaling xwayland windows
   hyprland-hidpi-patch = pkgs.fetchpatch {
     name = "hyprland-hidpi-xprop.patch";
-    url = "https://github.com/hyprwm/Hyprland/commit/5a712257e12837b9dc21cdf71fa1b8433897cd19.patch";
-    hash = "sha256-RgkSai/esZ1wTILalhCXxWo3S/MN7thLN8b/eWgdNh8=";
+    url = "https://github.com/hyprwm/Hyprland/commit/86a7f1290a710768408ee43816af3b9e00432bbc.patch";
+    hash = "sha256-gEusubdygdXY3Y8knLqN2fVt/28O3reICHeiZBZn0NA=";
   };
   hyprland-always-copy-xwl-patch = pkgs.fetchpatch {
     name = "hyprland-always-copy-xwl.patch";
